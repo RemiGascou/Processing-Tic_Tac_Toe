@@ -26,9 +26,9 @@ int nextPlayer = 1;
 void setup() {
   size(319, 319);
   //smooth(10);
-  cross = loadImage("src/small/cross.png");
-  circle = loadImage("src/small/circle.png");
-  grid = loadImage("src/small/grid.png");
+  cross = loadImage("src/cross.png");
+  circle = loadImage("src/circle.png");
+  grid = loadImage("src/grid.png");
   image(grid, 0, 0);
   reset();
 }
