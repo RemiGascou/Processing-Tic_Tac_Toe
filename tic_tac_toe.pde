@@ -11,6 +11,18 @@
 PImage cross;
 PImage circle;
 PImage grid;
+
+
+
+PImage red_bar_v;
+PImage red_bar_h;
+PImage red_bar_diagonal_down;
+PImage red_bar_diagonal_up;
+
+PImage blue_bar_v;
+PImage blue_bar_h;
+PImage blue_bar_diagonal_down;
+PImage blue_bar_diagonal_up;
   
 int[][] gridTable = new int[3][3];
 int[][] gameTable = new int[3][3];
@@ -31,9 +43,20 @@ void setup() {
   size(1366, 768);
   background(0);
   //smooth(10);
+  
+  red_bar_v = loadImage("src/lines/red/bar_v.png");
+  red_bar_h = loadImage("src/lines/red/bar_h.png");
+  red_bar_diagonal_down = loadImage("src/lines/red/bar_diagonal_down.png");
+  red_bar_diagonal_up = loadImage("src/lines/red/bar_diagonal_up.png");
+  
+  blue_bar_v = loadImage("src/lines/blue/bar_v.png");
+  blue_bar_h = loadImage("src/lines/blue/bar_v.png");
+  blue_bar_diagonal_down = loadImage("src/lines/blue/bar_diagonal_down.png");
+  blue_bar_diagonal_up = loadImage("src/lines/blue/bar_diagonal_up.png");
+  
   cross = loadImage("src/cross.png");
   circle = loadImage("src/circle.png");
-  grid = loadImage("src/grid.png");
+  grid = loadImage("src/grid3.png");
   image(grid, 0 + startCoordX, 0 + startCoordY);
   reset();
   moves = 0;
@@ -150,64 +173,80 @@ void reset(){
 
 void whoHasWon(){
   int winner = 0;
-  // FOR CROSS
+  // FOR CROSS (blue)
   // diagonals -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   if(gameTable[0][0] == 1 && gameTable[1][1] == 1 && gameTable[2][2] == 1){
     winner = 1;
+    image(blue_bar_diagonal_down, 0 + startCoordX, 0 + startCoordY);
   }
   if(gameTable[0][2] == 1 && gameTable[1][1] == 1 && gameTable[2][0] == 1){
     winner = 1;
+    image(blue_bar_diagonal_up, 0 + startCoordX, 0 + startCoordY);
   }
   //verticals -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   if(gameTable[2][0] == 1 && gameTable[2][1] == 1 && gameTable[2][2] == 1){
     winner = 1;
+    image(blue_bar_v, 218 + startCoordX, 0 + startCoordY);
   }
   if(gameTable[1][0] == 1 && gameTable[1][1] == 1 && gameTable[1][2] == 1){
     winner = 1;
+    image(blue_bar_v, 109 + startCoordX, 0 + startCoordY);
   }
   if(gameTable[0][0] == 1 && gameTable[0][1] == 1 && gameTable[0][2] == 1){
     winner = 1;
+    image(blue_bar_v, 0 + startCoordX, 0 + startCoordY);
   }
   //hroizontals -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   if(gameTable[0][0] == 1 && gameTable[1][0] == 1 && gameTable[2][0] == 1){
     winner = 1;
+    image(blue_bar_h, 0 + startCoordX, 0 + startCoordY);
   }
   if(gameTable[0][1] == 1 && gameTable[1][1] == 1 && gameTable[2][1] == 1){
     winner = 1;
+    image(blue_bar_h, 0 + startCoordX, 109 + startCoordY);    
   }
   if(gameTable[0][2] == 1 && gameTable[1][2] == 1 && gameTable[2][2] == 1){
     winner = 1;
+    image(blue_bar_h, 0 + startCoordX, 218 + startCoordY);
   }
   
   
   
-  // FOR CIRCLE
+  // FOR CIRCLE (red)
   // diagonals -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   if(gameTable[0][0] == 2 && gameTable[1][1] == 2 && gameTable[2][2] == 2){
     winner = 2;
+    image(red_bar_diagonal_down, 0 + startCoordX, 0 + startCoordY);
   }
   if(gameTable[0][2] == 2 && gameTable[1][1] == 2 && gameTable[2][0] == 2){
     winner = 2;
+    image(red_bar_diagonal_up, 0 + startCoordX, 0 + startCoordY);
   }
   //verticals -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   if(gameTable[2][0] == 2 && gameTable[2][1] == 2 && gameTable[2][2] == 2){
     winner = 2;
+    image(red_bar_v, 218 + startCoordX, 0 + startCoordY);
   }
   if(gameTable[1][0] == 2 && gameTable[1][1] == 2 && gameTable[1][2] == 2){
     winner = 2;
+    image(red_bar_v, 109 + startCoordX, 0 + startCoordY);
   }
   if(gameTable[0][0] == 2 && gameTable[0][1] == 2 && gameTable[0][2] == 2){
     winner = 2;
+    image(red_bar_v, 0 + startCoordX, 0 + startCoordY);
   }
   //hroizontals -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   if(gameTable[0][0] == 2 && gameTable[1][0] == 2 && gameTable[2][0] == 2){
     winner = 2;
+    image(red_bar_h, 0 + startCoordX, 0 + startCoordY);
   }
   if(gameTable[0][1] == 2 && gameTable[1][1] == 2 && gameTable[2][1] == 2){
     winner = 2;
+    image(red_bar_h, 0 + startCoordX, 109 + startCoordY);
   }
   if(gameTable[0][2] == 2 && gameTable[1][2] == 2 && gameTable[2][2] == 2){
     winner = 2;
+    image(red_bar_h, 0 + startCoordX, 218 + startCoordY);
   }
   
   if(winner != 0){
