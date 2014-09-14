@@ -155,7 +155,7 @@ void whoHasWon(){
   if(gameTable[0][0] == 1 && gameTable[1][1] == 1 && gameTable[2][2] == 1){
     winner = 1;
   }
-  if(gameTable[0][1] == 1 && gameTable[1][1] == 1 && gameTable[2][0] == 1){
+  if(gameTable[0][2] == 1 && gameTable[1][1] == 1 && gameTable[2][0] == 1){
     winner = 1;
   }
   //verticals -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -186,7 +186,7 @@ void whoHasWon(){
   if(gameTable[0][0] == 2 && gameTable[1][1] == 2 && gameTable[2][2] == 2){
     winner = 2;
   }
-  if(gameTable[0][1] == 2 && gameTable[1][1] == 2 && gameTable[2][0] == 2){
+  if(gameTable[0][2] == 2 && gameTable[1][1] == 2 && gameTable[2][0] == 2){
     winner = 2;
   }
   //verticals -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
