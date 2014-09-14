@@ -50,7 +50,7 @@ void setup() {
   red_bar_diagonal_up = loadImage("src/lines/red/bar_diagonal_up.png");
   
   blue_bar_v = loadImage("src/lines/blue/bar_v.png");
-  blue_bar_h = loadImage("src/lines/blue/bar_v.png");
+  blue_bar_h = loadImage("src/lines/blue/bar_h.png");
   blue_bar_diagonal_down = loadImage("src/lines/blue/bar_diagonal_down.png");
   blue_bar_diagonal_up = loadImage("src/lines/blue/bar_diagonal_up.png");
   
